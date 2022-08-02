@@ -116,12 +116,12 @@ function exercise4(): array
 
     $result = [];
     foreach ($emails as $word) {
-        $firstLatter = strtolower(substr($word, 0, 1));
-        $lastLatter = substr($word, -1);
+        $firstLetter = strtolower(substr($word, 0, 1));
+        $lastLetter = strtolower(substr($word, -1));
 
         $letters = ['a', 's', 'b', 'o'];
 
-        if (in_array($firstLatter, $letters, true) || in_array($lastLatter, $letters, true)) {
+        if (in_array($firstLetter, $letters, true) || in_array($lastLetter, $letters, true)) {
             $result[] = $word;
         }
 
@@ -147,20 +147,16 @@ function exercise4arrayFilter(): array
     ];
 
 
-
-
     return array_filter($emails, function (string $word) {
 
-        $firstLatter = strtolower(substr($word, 0, 1));
-        $lastLatter = substr($word, -1);
+        $firstLetter = strtolower(substr($word, 0, 1));
+        $lastLetter = substr($word, -1);
 
         $letters = ['a', 's', 'b', 'o'];
-        $result = [];
-        if (in_array($firstLatter, $letters, true) || in_array($lastLatter, $letters, true)) {
-            $result[] = $word;
-            return $result;
-        }
+        return in_array($firstLetter, $letters, true) || in_array($lastLetter, $letters, true);
+
     });
 }
 
-print_r(exercise4arrayFilter());
+
+//print_r(exercise4arrayFilter());
